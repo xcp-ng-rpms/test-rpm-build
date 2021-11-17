@@ -9,7 +9,7 @@ set -eux
 BUILD_ENV_PATH=/tmp/build-env
 mkdir -p "$BUILD_ENV_PATH"
 
-git clone git@github.com:xcp-ng/xcp-ng-build-env.git "$BUILD_ENV_PATH"
+git clone https://github.com/xcp-ng/xcp-ng-build-env.git "$BUILD_ENV_PATH"
 
 TARGET_XCP_NG_VERSION=${TARGET_XCP_NG_VERSION:-8.2}
 "$BUILD_ENV_PATH"/build.sh "$TARGET_XCP_NG_VERSION"
