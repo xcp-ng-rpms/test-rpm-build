@@ -17,7 +17,7 @@ TARGET_XCP_NG_VERSION=${TARGET_XCP_NG_VERSION:-8.2}
 REPO_PATH="$1"
 
 CONTAINER_NAME=${CONTAINER_NAME:-build-env}
-ADDITIONAL_REPOS=xcp-ng-staging
+ADDITIONAL_REPOS=xcp-ng-staging,xcp-ng-testing
 python "$BUILD_ENV_PATH"/run.py --name "$CONTAINER_NAME" \
     --fail-on-error \
     --enablerepo "$ADDITIONAL_REPOS" \
