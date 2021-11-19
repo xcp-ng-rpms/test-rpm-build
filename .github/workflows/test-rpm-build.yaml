@@ -1,0 +1,19 @@
+on: [workflow_call]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v2
+    - name: Build RPM
+      shell: 'script -q -e -c "bash {0}"'
+      run: |
+        git clone https://github.com/xcp-ng-rpms/test-rpm-build.git /tmp/test-rpm-build
+        GIT_DESCRIBE=$(git describe --tags)
+        VERSION=${GIT_DESCRIBE:0:3}
+        TARGET_XCP_NG_VERSION=$VERSION /tmp/test-rpm-build/test-rpm-build.sh .
