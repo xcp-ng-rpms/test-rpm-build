@@ -12,7 +12,7 @@ jobs:
       uses: actions/setup-python@v2
     - name: Build RPM
       run: |
-        git describe --always --dirty
+        /usr/bin/git describe --always --dirty
         git clone https://github.com/xcp-ng-rpms/test-rpm-build.git /tmp/test-rpm-build
         GIT_DESCRIBE=$(git describe --tags)
         VERSION=${GIT_DESCRIBE:0:3}
