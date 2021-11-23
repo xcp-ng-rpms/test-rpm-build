@@ -13,6 +13,7 @@ jobs:
     - name: Build RPM
       shell: 'script -q -e -c "bash {0}"'
       run: |
+        git fetch --prune --unshallow --tags
         git clone https://github.com/xcp-ng-rpms/test-rpm-build.git /tmp/test-rpm-build
         GIT_DESCRIBE=$(git describe --tags)
         VERSION=${GIT_DESCRIBE:0:3}
